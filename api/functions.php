@@ -6,4 +6,11 @@
         echo $json;
         exit();
     }
+
+    function checkRequestMethod ($requestMethod){
+        if($requestMethod != "POST"){
+            $message = ["message" => "This Request Method $requestMethod is not allowd"];
+            sendJson($message, 400);
+        }
+    }
 ?>
