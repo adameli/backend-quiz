@@ -7,11 +7,31 @@
     {
         "username": "albin",
         "password": "sos",
-        "points": 0
+        "points": 5
     },
     {
         "username": "addes",
         "password": "dog",
+        "points": 3
+    },
+    {
+        "username": "svamp",
+        "password": "lol",
+        "points": 1
+    },
+    {
+        "username": "loska",
+        "password": "hej",
+        "points": 3
+    },
+    {
+        "username": "elle",
+        "password": "some",
         "points": 0
+    },
+    {
+        "username": "rumpa",
+        "password": "ses",
+        "points": 4
     }
 ]
