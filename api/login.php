@@ -6,7 +6,7 @@ $username = $data["username"];
 $password = $data["password"];
 
 header("Content-type: application/json");
-$json = json_encode(["message" => "we have your $username and $password"]);
+$json = json_encode(["message" => "we have your username: $username and password: $password"]);
 echo $json;
 exit();
 ?>
