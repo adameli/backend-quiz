@@ -1,4 +1,17 @@
-{
-    "username": "test",
-    "password": "test"
-}
+[
+    {
+        "username": "adde",
+        "password": "dog",
+        "points": 0
+    },
+    {
+        "username": "albin",
+        "password": "sos",
+        "points": 0
+    },
+    {
+        "username": "addes",
+        "password": "dog",
+        "points": 0
+    }
+]
