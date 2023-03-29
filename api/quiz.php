@@ -7,20 +7,11 @@ require_once "functions.php";
 // Array_diff compares array against one or more other arrays and returns the values in array that are not present in any of the other arrays. 
 $images = scandir("../images", SCANDIR_SORT_DESCENDING);
 $removeFiles = ['.','..'];
-// Notice the array now starts from the index 2
 $files = array_diff($images, $removeFiles);
 
-// Store the four random dogs in the $dogsArray
-$dogsArray = [];
-for($i = 0; $i < $count = 4; $i++){
-        $randomIndex = rand($min = 0, $max = count($files) - 1);
-        $dogImage = $files[$randomIndex];
-        $dogsArray[] = $dogImage;
-}
-
-// echo "<pre>";
-// var_dump($dogsArray);
-// echo "</pre>";
+// We shuffle the $files array so the first four dogs is not in alphabetical order, this makes it so the dogs are somwhat random
+shuffle($files);
+$dogsArray = array_slice($files, 0, 4);
 
 // Then we select a random dog from $dogsArray that will become the correct dog in the quiz
 $randomNumber =  rand($min = 0, $max = count($dogsArray) - 1);
