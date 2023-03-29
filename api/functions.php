@@ -13,4 +13,12 @@
             sendJson($message, 400);
         }
     }
+
+    function checkCorrectDog ($correctDog, $controllDog) {
+        if ($correctDog == $controllDog){
+            return true;
+        }else {
+            return false;
+        }
+    }
 ?>
