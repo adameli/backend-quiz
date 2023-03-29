@@ -12,11 +12,15 @@ $files = array_diff($images, $removeFiles);
 
 // Store the four random dogs in the $dogsArray
 $dogsArray = [];
-for($i = 0; $i < 4; $i++){
-    $randomIndex = rand($min = 0, $max = count($files) - 1);
-    $dogImage = $files[$randomIndex];
-    $dogsArray[] = $dogImage;
+for($i = 0; $i < $count = 4; $i++){
+        $randomIndex = rand($min = 0, $max = count($files) - 1);
+        $dogImage = $files[$randomIndex];
+        $dogsArray[] = $dogImage;
 }
+
+// echo "<pre>";
+// var_dump($dogsArray);
+// echo "</pre>";
 
 // Then we select a random dog from $dogsArray that will become the correct dog in the quiz
 $randomNumber =  rand($min = 0, $max = count($dogsArray) - 1);

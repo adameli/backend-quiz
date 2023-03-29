@@ -27,11 +27,15 @@ if(isset( $data["username"],  $data["password"],  $data["points"])){
 //     $message = ["message" => "You are missing a key/keys in your request! Check API doc for more info"];
 //     sendJson($message, 400);
 // }
-// Higscore
+
+// Highscore
+// Here we sort the $users array by the users points from highest to lowest.
 usort($users, function ($a, $b) {
     return $b["points"] - $a["points"];
 });
 
+// We take a pice from $users with the splice function leaving us with an array woth the first five user.
+// We then loop throuh the first five and create a new array with the essential information.
 $firstFiveOfUsers = array_slice($users, 0, 5);
 $topFive = [];
 foreach($firstFiveOfUsers as $user) {
