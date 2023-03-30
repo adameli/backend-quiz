@@ -2,6 +2,9 @@
 
 require_once "functions.php";
 
+$requestMethod = $_SERVER["REQUEST_METHOD"];
+checkRequestMethod($requestMethod, "GET");
+
 // With scandir we create an array whit the files in images (the dogs)
 // But beacuse scandir creates tow files that are '.' and '..' we remove them whit array_diff
 // Array_diff compares array against one or more other arrays and returns the values in array that are not present in any of the other arrays. 

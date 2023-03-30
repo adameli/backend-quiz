@@ -7,8 +7,15 @@
         exit();
     }
 
-    function checkRequestMethod ($requestMethod){
-        if($requestMethod != "POST"){
+    function checkContentType ($contentType) {
+        if ($contentType != "application/json"){
+            $message = ["message" => "This content-type '$contentType' is not allowad it must be 'application/json'"];
+            sendJson($message, 415);
+        }
+    }
+
+    function checkRequestMethod ($requestMethod, $rightMethod){
+        if($requestMethod != $rightMethod){
             $message = ["message" => "This Request Method $requestMethod is not allowd"];
             sendJson($message, 400);
         }

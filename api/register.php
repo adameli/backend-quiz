@@ -4,10 +4,7 @@ require_once "functions.php";
 
 // Controlls so that we only allow the content-type: application/json
 $contentType = $_SERVER["CONTENT_TYPE"];
-if ($contentType != "application/json"){
-    $message = ["error" => "This content-type $contentType is not allowad it must be 'application/json'"];
-    sendJson($message, 415);
-}
+checkContentType($contentType);
 
 $filename = "users.json";
 
@@ -16,6 +13,7 @@ $data = json_decode(file_get_contents("php://input"), true);
 $username = $data["username"];
 $password = $data["password"];
 
+// If the password have less then 4 characters you can't register (for safty features of course)
 if(strlen($password) < 4){
     $message = ["message" => "Password must consist of 4 or more characters"];
     sendJson($message, 400);

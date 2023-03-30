@@ -2,12 +2,13 @@
 ini_set("display_errors", 1);
 require_once "functions.php";
 
-// $requestMethod = $_SERVER["REQUEST_METHOD"];
-// if($requestMethod != "POST"){
-//     $message = ["message" => "This Request Method $requestMethod is not allowd"];
-//     sendJson($message, 400);
-// }
+// Controlls so that we only allow the content-type: application/json
+$contentType = $_SERVER["CONTENT_TYPE"];
+checkContentType($contentType);
 
+// Controlls so that we only allow the request-method: "POST"
+$requestMethod = $_SERVER["REQUEST_METHOD"];
+checkRequestMethod($requestMethod, "POST");
 
 $filename = "users.json";
 $data = json_decode(file_get_contents("php://input"), true);
