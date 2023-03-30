@@ -1,7 +1,6 @@
 <?php
 ini_set("display_errors", 1);
 require_once "functions.php";
-//* http code 201, save user in a json file, return a objekt with username & password & points.
 
 // Controlls so that we only allow the content-type: application/json
 $contentType = $_SERVER["CONTENT_TYPE"];
@@ -16,6 +15,11 @@ $filename = "users.json";
 $data = json_decode(file_get_contents("php://input"), true);
 $username = $data["username"];
 $password = $data["password"];
+
+if(strlen($password) < 4){
+    $message = ["message" => "Password must consist of 4 or more characters"];
+    sendJson($message, 400);
+}
 
 // Creates new user with the input values
 $newuser = [
