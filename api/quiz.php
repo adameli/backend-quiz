@@ -2,8 +2,15 @@
 
 require_once "functions.php";
 
+// Controlls so that we only allow the request-method: "GET"
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 checkRequestMethod($requestMethod, "GET");
+
+// if the file/folder with the images have been removed or somehow are gone we will let the user know of it 
+if(!file_exists("../images")){
+    $message = ["message" => "We are having problems by providing images at the moment! Pls try agin later"];
+    sendJson($message, 404);
+} 
 
 // With scandir we create an array whit the files in images (the dogs)
 // But beacuse scandir creates tow files that are '.' and '..' we remove them whit array_diff

@@ -23,10 +23,6 @@ if(isset( $data["username"],  $data["password"],  $data["points"])){
         }
     }
 }
-// else {
-//     $message = ["message" => "You are missing a key/keys in your request! Check API doc for more info"];
-//     sendJson($message, 400);
-// }
 
 // Highscore
 // Here we sort the $users array by the users points from highest to lowest.
