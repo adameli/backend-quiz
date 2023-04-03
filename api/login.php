@@ -11,6 +11,7 @@ $requestMethod = $_SERVER["REQUEST_METHOD"];
 checkRequestMethod($requestMethod, "POST");
 
 $filename = "users.json";
+// Get the post request and put the objekt in $data
 $data = json_decode(file_get_contents("php://input"), true);
 $username = $data["username"];
 $password = $data["password"];
@@ -23,7 +24,8 @@ if(empty($username) or empty($password)){
 }
 
 
-
+// We controll the username and password we got from the post request, if their is a registerd user in the json file. 
+// If "true" we send back the user that cheks out.
 $users = json_decode(file_get_contents($filename), true);
 foreach($users as $user){
     if($user["username"] == $username && $user["password"] == $password){

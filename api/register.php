@@ -7,11 +7,17 @@ $contentType = $_SERVER["CONTENT_TYPE"];
 checkContentType($contentType);
 
 $filename = "users.json";
-
 // Get the post request and put the objekt in $data
 $data = json_decode(file_get_contents("php://input"), true);
 $username = $data["username"];
 $password = $data["password"];
+
+// We use method empty() to controll if the values that we receive from the request are empty. 
+// empty() = returns true if varible does not exist or has a value that is empty or equal to zero
+if(empty($username) or empty($password)){
+    $message = ["message" => "Bad Request (empty values)"];
+    sendJson($message, 400);
+}
 
 // If the password have less then 4 characters you can't register (for safty features of course)
 if(strlen($password) < 4){
