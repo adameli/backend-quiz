@@ -2,18 +2,27 @@
 
 require_once "functions.php";
 
+$requestMethod = $_SERVER["REQUEST_METHOD"];
+
 // Get the post request and put the objekt in $data
 $data = json_decode(file_get_contents("php://input"), true);
 
 $filename = "users.json";
 $users = json_decode(file_get_contents($filename), true);
+if($requestMethod == "POST"){
+    $contentType = $_SERVER["CONTENT_TYPE"];
+    checkContentType($contentType);
 
-if(isset( $data["username"],  $data["password"],  $data["points"])){
+    if(!isset( $data["username"],  $data["password"],  $data["points"])){
+        $message = ["points" => "Bad Request, You are missing one or more key in your request "];
+        sendJson($message, 400);
+    }
     $username = $data["username"];
     $password = $data["password"];
     $newPoint = $data["points"];
 
     foreach($users as $index => $user){
+        // Here we find the wright user that is loged in, to incres it's points
         if($user["username"] == $username && $user["password"] == $password){
             $users[$index]["points"] = $users[$index]["points"] + $newPoint;
             $resource = ["points" => $user["points"] + $newPoint];
@@ -30,7 +39,7 @@ usort($users, function ($a, $b) {
     return $b["points"] - $a["points"];
 });
 
-// We take a pice from $users with the splice function leaving us with an array woth the first five user.
+// We take a pice from $users with the splice function leaving us with an array with the first five user.
 // We then loop throuh the first five and create a new array with the essential information.
 $firstFiveOfUsers = array_slice($users, 0, 5);
 $topFive = [];

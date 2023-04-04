@@ -1,0 +1,10 @@
+[
+    {
+        username: string,
+        points: how many points you wnat to add
+    }
+    {...}
+    {...}
+    {...}
+    {...}
+]

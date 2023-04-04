@@ -9,7 +9,7 @@
 
     function checkContentType ($contentType) {
         if ($contentType != "application/json"){
-            $message = ["message" => "This content-type '$contentType' is not allowad it must be 'application/json'"];
+            $message = ["message" => "This content-type '$contentType' is not allowd it must be 'application/json'"];
             sendJson($message, 415);
         }
     }
