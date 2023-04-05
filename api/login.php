@@ -35,5 +35,4 @@ foreach($users as $user){
 
 $message = ["message" => "Not Found"];
 sendJson($message, 404);
-
 ?>

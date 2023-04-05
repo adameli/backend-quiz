@@ -7,7 +7,7 @@ $contentType = $_SERVER["CONTENT_TYPE"];
 checkContentType($contentType);
 
 $filename = "users.json";
-// Get the post request and put the objekt in $data
+// Gets the post request and put the objekt in $data
 $data = json_decode(file_get_contents("php://input"), true);
 $username = $data["username"];
 $password = $data["password"];

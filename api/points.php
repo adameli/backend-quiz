@@ -1,5 +1,5 @@
 <?php
-
+ini_set("display_errors", 1);
 require_once "functions.php";
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
@@ -9,6 +9,7 @@ $data = json_decode(file_get_contents("php://input"), true);
 
 $filename = "users.json";
 $users = json_decode(file_get_contents($filename), true);
+
 if($requestMethod == "POST"){
     $contentType = $_SERVER["CONTENT_TYPE"];
     checkContentType($contentType);
@@ -22,7 +23,7 @@ if($requestMethod == "POST"){
     $newPoint = $data["points"];
 
     foreach($users as $index => $user){
-        // Here we find the wright user that is loged in, to incres it's points
+        // Here we find the wright user that is logged in, to incres it's points
         if($user["username"] == $username && $user["password"] == $password){
             $users[$index]["points"] = $users[$index]["points"] + $newPoint;
             $resource = ["points" => $user["points"] + $newPoint];

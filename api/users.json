@@ -2,7 +2,7 @@
     {
         "username": "adde",
         "password": "dog",
-        "points": 23
+        "points": 25
     },
     {
         "username": "albin",
@@ -28,11 +28,6 @@
         "username": "elle",
         "password": "some",
         "points": 0
-    },
-    {
-        "username": "rumpa",
-        "password": "ses",
-        "points": 4
     },
     {
         "username": "sompe",
@@ -62,6 +57,16 @@
     {
         "username": "elleess",
         "password": "shoe",
+        "points": 0
+    },
+    {
+        "username": "adamski00",
+        "password": "jbim2000",
+        "points": 0
+    },
+    {
+        "username": "00adde",
+        "password": "01alle",
         "points": 0
     }
 ]
